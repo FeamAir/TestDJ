@@ -18,8 +18,8 @@ public class Calculator {
                         return Operation.add(a, b);
                     }
                 case SUB:
-                    if (a < 0 || b < 0) {
-                        return Operation.sub(a, b);
+                    if (b < 0) {
+                        return -1.0;
                     } else {
                         return Operation.sub(a, b);
                     }
