@@ -19,7 +19,7 @@ public class Calculator {
                     }
                 case SUB:
                     if (b < 0) {
-                        return -1.0;
+                        throw new ArithmeticException("Указали два минуса");
                     } else {
                         return Operation.sub(a, b);
                     }
@@ -31,8 +31,7 @@ public class Calculator {
                     }
                 case DIV:
                     if (a == 0 || b == 0) {
-                        System.out.println("Divide by 0");
-                        return -1.0;
+                        throw new ArithmeticException("Не возможно деление на 0");
                     } else if (a < 0 || b < 0) {
                         return Operation.div(a, b);
                     } else if (a > 0 || b > 0) {
@@ -42,4 +41,16 @@ public class Calculator {
         }
         return -1.0;
     }
+    public String calculateEx(String a, String operation, String b) throws CalculatorException {
+        try {
+            double resultA = Double.parseDouble(a);
+            double resultB = Double.parseDouble(b);
+        } catch (NumberFormatException e) {
+            System.err.println("operation is not supported");
+            throw new CalculatorException("value incorrect");
+        }
+
+        return a + operation + b;
+    }
+
 }

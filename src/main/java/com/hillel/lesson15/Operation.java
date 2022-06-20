@@ -20,7 +20,8 @@ public enum Operation {
                 return valueType;
             }
         }
-        return null;
+        throw new UnsupportedOperationException("not operation, error UnsupportedOperationException");
+
     }
 
     public static double add(double a, double b) {
